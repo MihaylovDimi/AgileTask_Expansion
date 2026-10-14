@@ -1,7 +1,6 @@
 """Unit tests for the AgileTask logic."""
 
 import unittest
-
 from unittest.mock import Mock
 
 from app.logic import Task
@@ -16,8 +15,9 @@ class TestTask(unittest.TestCase):
         task = Task("Write report")
         task.complete()
         self.assertTrue(task.done)
-        def test_completing_task_notifies_every_notifier(self):
+
+    def test_completing_task_notifies_every_notifier(self):
         first, second = Mock(), Mock()
         Task("Write report", notifiers=[first, second]).complete()
         first.notify.assert_called_once_with("Task 'Write report' completed")
-        second.notify.assert_called_once_with("Task 'Write report' completed")    
+        second.notify.assert_called_once_with("Task 'Write report' completed")
