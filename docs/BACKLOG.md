@@ -40,3 +40,8 @@ Ordered by priority (Product Owner). Estimated in story points (Developers).
 - **Set a due date (2)** is the smallest: one new field and one validation rule.
 - **Categorise tasks (3)** is slightly bigger: a new field, a default value and a way to change it.
 - **Filter by category (5)** is the biggest: it depends on story 1 and must handle empty results.
+## Technical Spike: Real-time notifications (timeboxed, not estimated)
+
+**Goal:** Find out how to add notifications without changing the `Task` class every time a new channel is needed.
+
+**Outcome:** Introduced a `Notifier` interface. `Task` now accepts any list of notifiers, so email or push notifications can be added as new classes (Open-Closed Principle). The full notification story can now be estimated.
